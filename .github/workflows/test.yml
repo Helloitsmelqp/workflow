@@ -1,15 +1,14 @@
 name: PR Workflow
 
 on:
+  push:
+    branches: ["main"]
   pull_request:
     branches: ["main"]
 
 jobs:
-  pr-test:
+  my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Say Hello
-        run: echo "hello!
+      - uses: actions/checkout@v3
+      - run: echo "CI on push or PR"
